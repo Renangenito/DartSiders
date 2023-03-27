@@ -1,0 +1,96 @@
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 270px;
+    height: 100%;
+    background-color: #DCDCDC;
+    position: fixed;
+}
+
+.sideBar_logo {
+    width: 189.5px;
+    height: 24px;
+    padding: 1em 0;
+}
+
+.sideBar_usuario img {
+    border-radius: 50%;
+}
+
+.usuario_nome {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 21px;
+    color: #404040;
+}
+
+.usuario_acesso {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #A700D0;
+}
+
+.lista_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    width: 100%;
+    height: 350px;
+    padding: 0;
+}
+
+.sideBar_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 193px;
+    height: 41px;
+    border-radius: 4px;
+    font-style: normal;
+    line-height: 17px;
+    color: #404040;
+}
+
+.sideBar_link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.sideBar_link:focus {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(214, 214, 213, 0.4));
+    overflow: hidden;
+}
+
+.link_icone {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    width: 132px;
+    height: 37px;
+}
+
+.icone {
+    color: #404040;
+}
+
+.sideBar_logout {
+    display: flex;
+    gap: 16px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #404040;
+    padding: 1em 0;
+}

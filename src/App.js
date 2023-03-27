@@ -1,11 +1,10 @@
 import './App.css';
+import SideBar from './Components/Layout/SideBar';
 
 function App() {
   return (
     <div className="App">
-      <div>
-        <h1>DartSiders</h1>
-      </div>
+      <SideBar />
     </div>
   );
 }
