@@ -1,0 +1,36 @@
+.barraPesquisa {
+    width: 100%;
+    height: 57px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    background-color: #ffffff;
+}
+
+.barraInput {
+    width: 517px;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #404040;
+    border-radius: 8px;
+    margin-right: 32px;
+}
+
+.barraInput input{
+    width: 90%;
+    height: 80%;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 0 10.5px;
+}
+.barraInput svg{
+    font-size: 20px;
+    color: #404040;
+    margin-right: 10.5px;
+    cursor: pointer;
+}
