@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './SideBar.module.css'
-import logo from "../../../assets/logo-dartsiders.png"
-import fotoPerfil from "../../../assets/foto-perfil.png"
-import logout from "../../../assets/icones/logout.svg"
-import homeIcone from "../../../assets/icones/home.svg"
-import cursosIcone from "../../../assets/icones/cursos.svg"
-import estudantesIcone from "../../../assets/icones/estudantes.svg"
-import pagamentosIcone from "../../../assets/icones/pagamentos.svg"
-import vectorIcone from "../../../assets/icones/vector.svg"
-import configuracoesIcone from "../../../assets/icones/configuracoes.svg"
+import logo from "../../assets/logo-dartsiders.png"
+import fotoPerfil from "../../assets/foto-perfil.png"
+import logout from "../../assets/icones/logout.svg"
+import homeIcone from "../../assets/icones/home.svg"
+import cursosIcone from "../../assets/icones/cursos.svg"
+import estudantesIcone from "../../assets/icones/estudantes.svg"
+import pagamentosIcone from "../../assets/icones/pagamentos.svg"
+import vectorIcone from "../../assets/icones/vector.svg"
+import configuracoesIcone from "../../assets/icones/configuracoes.svg"
 function SideBar() {
     return (
 
