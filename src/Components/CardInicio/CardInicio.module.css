@@ -1,0 +1,30 @@
+.cardInicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 220px;
+    height: 150px;
+    background: #7A86F5;
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: 'Montserrat';
+}
+
+.texto {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 0;
+}
+
+.quantidade {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;    
+    margin: 0;
+}

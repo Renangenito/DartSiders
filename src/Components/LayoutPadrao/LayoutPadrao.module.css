@@ -1,0 +1,6 @@
+.layout{
+    width: calc(100% - 250px);
+    height: 100vh;
+    margin-left: 270px;
+}
+
