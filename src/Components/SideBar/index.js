@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './SideBar.module.css'
 import logo from "../../assets/logo-dartsiders.png"
 import fotoPerfil from "../../assets/foto-perfil.png"
@@ -9,10 +9,11 @@ import estudantesIcone from "../../assets/icones/estudantes.svg"
 import pagamentosIcone from "../../assets/icones/pagamentos.svg"
 import vectorIcone from "../../assets/icones/vector.svg"
 import configuracoesIcone from "../../assets/icones/configuracoes.svg"
-function SideBar() {
+function SideBar({ destacado}) {
+
     return (
 
-        <div className={styles.sideBar}>
+        <div className={destacado ? styles.sideBar : styles.mobile}>
             <img className={styles.sideBar_logo} src={logo} alt="Logo do site DartSiders" />
             <div className={styles.sideBar_usuario}>
                 <img src={fotoPerfil} alt="imagem do usuário" />
