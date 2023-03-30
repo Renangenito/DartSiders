@@ -10,5 +10,14 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+    
 }
 
+@media screen and (max-width: 820px) {
+    .tituloInicio{
+        display: none;
+    }
+    .secaoCards{
+        margin-top: 90px;
+    }
+}

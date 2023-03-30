@@ -10,7 +10,7 @@ function Inicio() {
     return (
         <LayoutPadrao>
             <div className={styles.inicio}>
-                <h1>Início</h1>
+                <h1 className={styles.tituloInicio}>Início</h1>
                 <section className={styles.secaoCards}>
                     <CardInicio texto="Cursos" quantidade="13" imagem={cursos} alt="Ícone de curso" />
                     <CardInicio texto="Estudantes" quantidade="243" imagem={estudante} alt="Ícone de Estudante" />

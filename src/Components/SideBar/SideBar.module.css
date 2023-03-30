@@ -59,9 +59,9 @@
     line-height: 17px;
     color: #404040;
 }
-
-.sideBar_link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.sideBar_link:hover{
+    background-color: #A700D0;
+    color: #FFFFFF;
     cursor: pointer;
 }
 
@@ -94,3 +94,18 @@
     color: #404040;
     padding: 1em 0;
 }
+
+@media screen and (max-width: 820px) {
+    .sideBar{
+        height: 546px;
+        justify-content: flex-start;
+    }
+    .lista_links{
+        margin-bottom: 148px;
+
+    }
+    .sideBar_usuario img, .usuario_nome, .sideBar_logo, .usuario_acesso {
+        display: none;
+    }
+  }
+  
