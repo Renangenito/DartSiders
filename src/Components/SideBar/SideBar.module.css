@@ -107,5 +107,18 @@
     .sideBar_usuario img, .usuario_nome, .sideBar_logo, .usuario_acesso {
         display: none;
     }
+
+    /* Menu humburgher */
+    .sideBar {
+        width: 225px;
+        position: absolute;
+        transition: 0.8s;
+    }
+    .mobile{
+        width: 225px;
+        position: absolute;
+        margin-left: -270px;
+        transition: 0.4s;
+    }
   }
   
