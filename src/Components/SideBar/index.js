@@ -14,7 +14,7 @@ function SideBar({ destacado }) {
     return (
 
         <div className={destacado ? styles.mobile : styles.sideBar}>
-            {console.log("DESTACADO: ", destacado)}
+            
             <img className={styles.sideBar_logo} src={logo} alt="Logo do site DartSiders" />
             <div className={styles.sideBar_usuario}>
                 <img src={fotoPerfil} alt="imagem do usuário" />
