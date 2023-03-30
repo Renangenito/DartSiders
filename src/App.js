@@ -10,14 +10,8 @@ function App() {
   const [destacado, setDestacado] = useState(false);
 
     const showMenuHumburgher = (e) =>{ 
-        e.preventDefault();
         setShow(!show);
-        if(show) {
-          setDestacado(true);
-        }else{
-          setDestacado(false);
-        }
-      
+        setDestacado(!destacado);
     }
 
 

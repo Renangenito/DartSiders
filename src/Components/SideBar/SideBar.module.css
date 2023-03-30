@@ -111,14 +111,13 @@
     /* Menu humburgher */
     .sideBar {
         width: 225px;
-        position: absolute;
         transition: 0.8s;
+        margin: 0;
     }
     .mobile{
-        width: 225px;
         position: absolute;
         margin-left: -270px;
-        transition: 0.4s;
+        transition: 0.8s;
     }
   }
   

@@ -9,11 +9,12 @@ import estudantesIcone from "../../assets/icones/estudantes.svg"
 import pagamentosIcone from "../../assets/icones/pagamentos.svg"
 import vectorIcone from "../../assets/icones/vector.svg"
 import configuracoesIcone from "../../assets/icones/configuracoes.svg"
-function SideBar({ destacado}) {
+function SideBar({ destacado }) {
 
     return (
 
-        <div className={destacado ? styles.sideBar : styles.mobile}>
+        <div className={destacado ? styles.mobile : styles.sideBar}>
+            
             <img className={styles.sideBar_logo} src={logo} alt="Logo do site DartSiders" />
             <div className={styles.sideBar_usuario}>
                 <img src={fotoPerfil} alt="imagem do usuário" />
