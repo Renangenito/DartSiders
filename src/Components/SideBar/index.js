@@ -13,7 +13,7 @@ function SideBar({ destacado }) {
 
     return (
 
-        <div className={destacado ? styles.mobile : styles.sideBar}>
+        <div className={destacado ? [styles.mobile, styles.sideBar].join(' ') : styles.sideBar }>
             
             <img className={styles.sideBar_logo} src={logo} alt="Logo do site DartSiders" />
             <div className={styles.sideBar_usuario}>

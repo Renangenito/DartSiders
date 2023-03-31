@@ -7,7 +7,7 @@ import Inicio from './Pages';
 function App() {
 
   const [show, setShow] = useState(true);
-  const [destacado, setDestacado] = useState(false);
+  const [destacado, setDestacado] = useState(true);
 
     const showMenuHumburgher = (e) =>{ 
         setShow(!show);
