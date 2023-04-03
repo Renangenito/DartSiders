@@ -1,0 +1,10 @@
+.link {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: #404040;
+    text-decoration: none;
+}
+
+.linkDestacado{
+    background-color: #A700D0;
+}

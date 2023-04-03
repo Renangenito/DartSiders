@@ -58,6 +58,7 @@
     font-style: normal;
     line-height: 17px;
     color: #404040;
+    text-decoration: none;
 }
 .sideBar_link:hover{
     background-color: #A700D0;
@@ -65,9 +66,9 @@
     cursor: pointer;
 }
 
-.sideBar_link:focus {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(214, 214, 213, 0.4));
-    overflow: hidden;
+.linkDestacado{
+    background-color: #A700D0;
+    color: #FFFFFF;
 }
 
 .link_icone {
@@ -99,6 +100,7 @@
     .sideBar{
         height: 546px;
         justify-content: flex-start;
+        padding-top: 20px;
     }
     .lista_links{
         margin-bottom: 148px;

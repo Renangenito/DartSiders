@@ -1,10 +1,10 @@
 import styles from './Inicio.module.css';
-import CardInicio from "../Components/CardInicio";
-import cursos from '../assets/iconesInicio/cursos.svg';
-import estudante from '../assets/iconesInicio/estudante.svg';
-import pagamento from '../assets/iconesInicio/pagamento.svg';
-import relatorio from '../assets/iconesInicio/relatorio.svg';
-import LayoutPadrao from '../Components/LayoutPadrao';
+import CardInicio from "../../Components/CardInicio";
+import cursos from '../../assets/iconesInicio/cursos.svg';
+import estudante from '../../assets/iconesInicio/estudante.svg';
+import pagamento from '../../assets/iconesInicio/pagamento.svg';
+import relatorio from '../../assets/iconesInicio/relatorio.svg';
+import LayoutPadrao from '../../Components/LayoutPadrao';
 
 function Inicio() {
     return (
