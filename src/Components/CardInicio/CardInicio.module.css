@@ -10,7 +10,9 @@
     color: #ffffff;
     font-family: 'Montserrat';
 }
-
+.cardInicio svg{
+    font-size: 35px;
+}
 .texto {
     font-family: 'Montserrat';
     font-style: normal;

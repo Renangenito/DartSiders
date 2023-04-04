@@ -3,10 +3,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 270px;
+    width: 250px;
     height: 100%;
     background-color: #DCDCDC;
     position: fixed;
+    z-index: 1000;
 }
 
 .sideBar_logo {
@@ -80,10 +81,9 @@
     height: 37px;
 }
 
-.icone {
-    color: #404040;
+.link_icone svg{
+    font-size: 20px;
 }
-
 .sideBar_logout {
     display: flex;
     gap: 16px;

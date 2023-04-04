@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './SideBar.module.css'
 import logo from "../../assets/logo-dartsiders.png"
 import fotoPerfil from "../../assets/foto-perfil.png"
-import logout from "../../assets/icones/logout.svg"
-import homeIcone from "../../assets/icones/home.svg"
-import cursosIcone from "../../assets/icones/cursos.svg"
-import estudantesIcone from "../../assets/icones/estudantes.svg"
-import pagamentosIcone from "../../assets/icones/pagamentos.svg"
-import vectorIcone from "../../assets/icones/vector.svg"
-import configuracoesIcone from "../../assets/icones/configuracoes.svg"
 import { Link, useLocation } from 'react-router-dom';
+import { AiOutlineControl, AiOutlineHome } from "react-icons/ai";
+import { FiBookmark } from "react-icons/fi";
+import { SlGraduation } from "react-icons/sl";
+import { RiMoneyDollarBoxLine, RiLogoutBoxRLine } from "react-icons/ri";
+import { HiOutlineDocumentReport } from "react-icons/hi";
+
 function SideBar({ destacado }) {
 
 
@@ -28,37 +27,37 @@ function SideBar({ destacado }) {
             <nav className={styles.lista_links}>
                 <Link to="/" className={`${styles.sideBar_link} ${localizacao.pathname === "/" ? styles.linkDestacado : ''}`}>
                     <div className={styles.link_icone}>
-                        <img src={homeIcone} alt="icone de home" />Home
+                        <AiOutlineHome />Home
                     </div>
                 </Link>
                 <Link className={`${styles.sideBar_link} ${localizacao.pathname === "/cursos" ? styles.linkDestacado : ''}`}>
                     <div className={styles.link_icone}>
-                        <img src={cursosIcone} alt="icone de cursos" />Cursos
+                        <FiBookmark />Cursos
                     </div>
                 </Link>
                 <Link to="/estudantes" className={`${styles.sideBar_link} ${localizacao.pathname === "/estudantes" ? styles.linkDestacado : ''}`}>
                     <div className={styles.link_icone}>
-                        <img src={estudantesIcone} alt="icone de estudantes" />Estudantes
+                        <SlGraduation />Estudantes
                     </div>
                 </Link>
                 <Link className={`${styles.sideBar_link} ${localizacao.pathname === "/pagamentos" ? styles.linkDestacado : ''}`}>
                     <div className={styles.link_icone}>
-                        <img src={pagamentosIcone} alt="icone de pagamentos" />Pagamentos
+                        <RiMoneyDollarBoxLine />Pagamentos
                     </div>
                 </Link>
                 <Link className={`${styles.sideBar_link} ${localizacao.pathname === "/relatorios" ? styles.linkDestacado : ''}`}>
                     <div className={styles.link_icone}>
-                        <img src={vectorIcone} alt="icone de relatóriois" />Relatórios
+                        <HiOutlineDocumentReport />Relatórios
                     </div>
                 </Link>
                 <Link className={`${styles.sideBar_link} ${localizacao.pathname === "/configuracoes" ? styles.linkDestacado : ''}`}>
                     <div className={styles.link_icone}>
-                        <img src={configuracoesIcone} alt="icone de configurações" />Configurações
+                        <AiOutlineControl />Configurações
                     </div>
                 </Link>
             </nav>
 
-            <a className={styles.sideBar_logout}>Logout<img src={logout} alt="icone de logout" /></a>
+            <p className={styles.sideBar_logout}>Logout<RiLogoutBoxRLine /></p>
 
         </div>
 
