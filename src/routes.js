@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import './routes.css';
 import BarraPesquisa from './Components/BarraPesquisa';
 import SideBar from './Components/SideBar';
 import Inicio from './Pages/Inicio/index';

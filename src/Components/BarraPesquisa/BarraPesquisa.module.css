@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: end;
     background-color: #ffffff;
+    position: fixed;
 }
 
 .barraInput {
@@ -58,6 +59,7 @@
     }
     .barraPesquisa{
         align-items: center;
+        position: static;
     }
     .barraInput{
         width: 80%;
