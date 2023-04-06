@@ -40,31 +40,28 @@
     cursor: pointer;
     background: #8603a7;
 }
-.secaoCards {
+.secaoLista {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
+    align-items: center;
+    gap: 16px;
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 1200px) {
     .estudantesTituloBotao {
-        width: 658px;
-        margin: 70px 0;
+        width: 84%;
+        margin-top: 70px;
     }
 
     .secaoLista {
-        margin-top: 90px;
+        margin-top: 30px;
     }
 }
 
 @media screen and (max-width: 500px) {
     .estudantesTituloBotao {
         flex-direction: column;
-        margin: 70px 0;
-    }
-
-    .secaoLista {
-        margin-top: 90px;
     }
 }

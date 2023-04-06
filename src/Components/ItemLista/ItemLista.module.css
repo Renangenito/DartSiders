@@ -1,0 +1,107 @@
+.itemLista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 87px;
+    background-color: #FFFFFF;
+    padding: 0 20px;
+}
+
+.imagemPerfil {
+    width: 80px;
+    height: 64px;
+    border-radius: 10px;
+}
+
+.secaoDados {
+    width: 100%;
+    display: flex;
+}
+
+.dadosPerfil {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 50px;
+}
+
+.icones {
+    display: flex;
+    justify-content: flex-end;
+    width: 200px;
+}
+
+.icones svg {
+    color: #A700D0;
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.dadosHeader {
+    display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .itemLista{
+        width: 85%;
+    }
+    .itemLista,
+    .dadosHeader,
+    .dadosPerfil,
+    .secaoDados {
+        height: 213px;
+    }
+
+    .secaoDados {
+        justify-content: space-evenly;
+    }
+    .dadosHeader{
+        font-weight: bold;
+    }
+    .dadosHeader,
+    .dadosPerfil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 0;
+    }
+
+    .dadosHeader p,
+    .dadosPerfil p {
+        margin: 0;
+    }
+
+    .dadosPerfil {
+        width: auto;
+    }
+
+    .icones {
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .itemLista {
+        width: 80%;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+    .itemLista {
+        height: 300px;
+    }
+    .imagemPerfil{
+        margin: 20px 0 0 25px;
+    }
+    .dadosPerfil {
+        padding: 0 10px;
+    }
+    .icones{
+        position: absolute;
+        right: 30px;
+        top: 20px;
+    }
+}
