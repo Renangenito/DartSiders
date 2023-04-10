@@ -36,10 +36,12 @@
     font-family: 'Montserrat';
     font-size: 14px;
 }
-.botaoAdicionar:hover{
+
+.botaoAdicionar:hover {
     cursor: pointer;
     background: #8603a7;
 }
+
 .secaoLista {
     width: 100%;
     display: flex;
@@ -53,6 +55,10 @@
     .estudantesTituloBotao {
         width: 84%;
         margin-top: 70px;
+    }
+
+    .dadosHeaderDesktop {
+        display: none;
     }
 
     .secaoLista {

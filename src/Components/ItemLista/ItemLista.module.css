@@ -25,7 +25,9 @@
     width: 100%;
     padding: 0 50px;
 }
-
+.dadosPerfil p{
+    min-width: 160px;
+}
 .icones {
     display: flex;
     justify-content: flex-end;

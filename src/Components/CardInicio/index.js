@@ -1,6 +1,6 @@
 import styles from './CardInicio.module.css'
 
-function CardInicio({texto, quantidade, imagem, alt}) {
+function CardInicio({texto, quantidade, imagem}) {
     return (
             <div className={styles.cardInicio}>
                 {imagem}

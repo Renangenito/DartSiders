@@ -7,6 +7,7 @@ import { RiMoneyDollarBoxLine } from "react-icons/ri";
 import { HiOutlineDocumentReport } from "react-icons/hi";
 
 function Inicio() {
+    
     return (
         <LayoutPadrao>
             <div className={styles.inicio}>
