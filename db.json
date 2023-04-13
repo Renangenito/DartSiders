@@ -1,0 +1,73 @@
+{
+  "estudantes": [
+    {
+      "id": 1,
+      "nome": "Julia",
+      "email": "julia@gmail.com",
+      "telefone": "48996582154",
+      "matricula": 13216851651,
+      "admissao": "2021-12-08",
+      "imagem": "https://github.com/viniciosneves/imagens-darksiders/raw/main/julia.png"
+    },
+    {
+      "id": 2,
+      "nome": "Marcos",
+      "email": "marcos@gmail.com",
+      "telefone": "48996582154",
+      "matricula": 13216851651,
+      "admissao": "2021-12-08",
+      "imagem": "https://github.com/viniciosneves/imagens-darksiders/raw/main/Marcos.png"
+    },
+    {
+      "id": 3,
+      "nome": "Yuri",
+      "email": "yuri@gmail.com",
+      "telefone": "48996582154",
+      "matricula": 13216851651,
+      "admissao": "2021-12-08",
+      "imagem": "https://github.com/viniciosneves/imagens-darksiders/raw/main/Yuri.png"
+    },
+    {
+      "id": 4,
+      "nome": "Henrique",
+      "email": "henrique@gmail.com",
+      "telefone": "48996582154",
+      "matricula": 13216851651,
+      "admissao": "2021-12-08",
+      "imagem": "https://github.com/viniciosneves/imagens-darksiders/raw/main/Henrique.png"
+    },
+    {
+      "id": 5,
+      "nome": "Lara",
+      "email": "lara@gmail.com",
+      "telefone": "48996582154",
+      "matricula": 13216851651,
+      "admissao": "2021-12-08",
+      "imagem": "https://github.com/viniciosneves/imagens-darksiders/raw/main/Lara.png"
+    },
+    {
+      "id": 6,
+      "nome": "Giovanna",
+      "email": "giovanna@gmail.com",
+      "telefone": "48996582154",
+      "matricula": 13216851651,
+      "admissao": "2021-12-08",
+      "imagem": "https://github.com/viniciosneves/imagens-darksiders/raw/main/Giovanna.png"
+    },
+    {
+      "id": 7,
+      "nome": "Gabriel",
+      "email": "giovanna@gmail.com",
+      "telefone": "48996582154",
+      "matricula": 13216851651,
+      "admissao": "2021-12-08",
+      "imagem": "https://github.com/viniciosneves/imagens-darksiders/raw/main/Gabriel.png"
+    }
+  ],
+  "dashboard": {
+    "cursos": 13,
+    "estudantes": 243,
+    "pagamentos": 556000,
+    "relatorios": 3
+  }
+}
