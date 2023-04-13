@@ -1,0 +1,59 @@
+.modalHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.modalHeader h2{
+    margin: 0;
+}
+.modalHeader svg{
+    font-size: 25px;
+}
+.modalHeader svg:hover{
+    cursor: pointer;
+    background-color: #b4b2b4;
+    border-radius: 50%;
+}
+
+.modalTexto{
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #000;
+    display: inline-block;
+}
+
+.modalButtons{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 1em;
+}
+
+.modalButtons .modalButtonSubmit, .modalButtons .modalButtonClose{
+    width: 100px;
+    height: 37px;
+    border: none;
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modalButtonSubmit{
+    background-color: #A700D0;
+}
+
+.modalButtonClose{
+    background-color: #444344;
+
+}
+
+.modalButtonSubmit:hover{
+    background-color: #ca26f3;
+}
+
+.modalButtonClose:hover{
+    background-color: #616061;
+
+}
