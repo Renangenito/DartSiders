@@ -14,6 +14,10 @@ function Estudantes() {
     }, [])
 
     const [modalIsOpen, setIsOpen] = useState(false);
+    
+    function aoSalvar(){
+        console.log("TESTE: ")
+    }
 
     function openModal() {
         setIsOpen(true);
@@ -33,7 +37,7 @@ function Estudantes() {
                 <section className={styles.secaoLista}>
                     {estudantes.map(estudante => <ItemLista key={estudante.id} imagemPerfil={estudante.imagem} nome={estudante.nome} email={estudante.email} telefone={estudante.telefone} matricula={estudante.matricula} admissao={estudante.admissao} />)}
                 </section>
-                <ModalForm titulo="Novo Estudante" texto="Cadastrar" modalIsOpen={modalIsOpen} closeModal={closeModal} />
+                <ModalForm titulo="Novo Estudante" texto="Cadastrar" modalIsOpen={modalIsOpen} closeModal={closeModal} enviarDados={aoSalvar}/>
             </div>
         </LayoutPadrao>
     )
