@@ -2,7 +2,7 @@ import styles from './ItemLista.module.css';
 // import imagemJulia from '../../assets/imagem-julia.png';
 import { SlTrash, SlPencil } from "react-icons/sl";
 
-function ItemLista({ imagemPerfil, nome, email, telefone, matricula, admissao }) {
+function ItemLista({ imagemPerfil, nome, email, telefone, matricula, admissao , aoEditar}) {
     return (
         <div className={styles.itemLista}>
             <img className={styles.imagemPerfil} src={imagemPerfil} alt="Imagem da Júlia" />
@@ -23,9 +23,10 @@ function ItemLista({ imagemPerfil, nome, email, telefone, matricula, admissao })
                 </div>
             </div>
             <div className={styles.icones}>
-                <SlPencil title='Editar'/>
+                <SlPencil title='Editar' onClick={aoEditar}/>
                 <SlTrash title='Excluir'/>
             </div>
+
         </div>
     )
 }

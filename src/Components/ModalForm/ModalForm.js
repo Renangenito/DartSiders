@@ -6,8 +6,8 @@ import { useState } from "react";
 
 const customStyles = {
   overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.7)", // define a cor de fundo padrão
-    zIndex: 9999, // define a ordem de empilhamento do elemento
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    zIndex: 9999,
   },
   content: {
     width: "300px",
@@ -21,7 +21,7 @@ const customStyles = {
   },
 };
 
-function ModalForm({ modalIsOpen, closeModal, titulo, texto }) {
+function ModalForm({ modalIsOpen, closeModal, titulo, texto, aoSubmeter }) {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -38,9 +38,8 @@ function ModalForm({ modalIsOpen, closeModal, titulo, texto }) {
     leitor.readAsDataURL(arquivo);
   }
 
-  const url = "http://localhost:8080/estudantes";
 
-  function enviarDados() {
+  function aoEnviarDados() {
     const estudante = {
       nome,
       email,
@@ -49,19 +48,7 @@ function ModalForm({ modalIsOpen, closeModal, titulo, texto }) {
       admissao,
       imagem,
     };
-    console.log("Estudante:", estudante);
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-       
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(estudante),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+    aoSubmeter(estudante)
 
     setNome("");
     setEmail("");
@@ -69,8 +56,11 @@ function ModalForm({ modalIsOpen, closeModal, titulo, texto }) {
     setMatricula("");
     setAdmissao("");
     setImagem("");
+
+    closeModal();
   }
 
+  
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -119,15 +109,16 @@ function ModalForm({ modalIsOpen, closeModal, titulo, texto }) {
           valor={admissao}
           aoAlterado={(valor) => setAdmissao(valor)}
         />
+        <label style={{ fontWeight: "bold" }}>Selecionar Imagem</label>
         <input
-          label="Imagem"
+          style={{ marginTop: ".5em" }}
           type="file"
           valor={imagem}
           onChange={handleImagemSelecionada}
         />
       </form>
       <div className={styles.modalButtons}>
-        <button className={styles.modalButtonSubmit} onClick={enviarDados}>
+        <button className={styles.modalButtonSubmit} onClick={aoEnviarDados}>
           Enviar
         </button>
         <button className={styles.modalButtonClose} onClick={closeModal}>
