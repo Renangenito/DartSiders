@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 
 function Estudantes() {
   const [estudantes, setEstudantes] = useState([]);
+  const [editando, setEditando] = useState(false);
+
   const url = "http://localhost:8080/estudantes";
 
   useEffect(() => {
@@ -25,7 +27,6 @@ function Estudantes() {
   }
 
   function aoSubmeter(estudante) {
-    console.log("Testando 123: ", estudante)
     fetch(url, {
       method: "POST",
       headers: {
@@ -38,16 +39,20 @@ function Estudantes() {
       .catch((error) => console.error(error));
     
   }
-  function aoEditar(){
-    console.log("Editando.....")
+
+  function aoEditar(id){
+    setEditando(true);
+    openModal();
+    console.log("EDITANDO..... ID:", id);
   }
+
 
   return (
     <LayoutPadrao>
       <div className={styles.estudantes}>
         <div className={styles.estudantesTituloBotao}>
           <h1 className={styles.tituloEstudantes}>Lista de Estudantes</h1>
-          <button className={styles.botaoAdicionar} onClick={openModal}>
+          <button className={styles.botaoAdicionar} onClick={() => {openModal(); setEditando(false);}}>
             Adicionar novos estudantes
           </button>
         </div>
@@ -55,6 +60,7 @@ function Estudantes() {
           {estudantes.map((estudante) => (
             <ItemLista
               key={estudante.id}
+              id={estudante.id}
               imagemPerfil={estudante.imagem}
               nome={estudante.nome}
               email={estudante.email}
@@ -62,13 +68,15 @@ function Estudantes() {
               matricula={estudante.matricula}
               admissao={estudante.admissao}
               aoEditar={aoEditar}
+              editando={editando}
             />
           ))}
         </section>
         <ModalForm
           aoSubmeter={aoSubmeter}
-          titulo="Novo Estudante"
-          texto="Cadastrar"
+          editandoSim={editando}
+          titulo={editando ? "Editando estudante" : "Novo Estudante"}
+          texto={editando ? "Editar" : "Cadastrar"}
           modalIsOpen={modalIsOpen}
           closeModal={closeModal}
         />
