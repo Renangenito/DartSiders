@@ -21,7 +21,7 @@ const customStyles = {
   },
 };
 
-function ModalForm({ modalIsOpen, closeModal, titulo, texto, aoSubmeter }) {
+function ModalForm({ modalIsOpen, closeModal, titulo, texto, aoSubmeter, editandoSim }) {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -40,6 +40,8 @@ function ModalForm({ modalIsOpen, closeModal, titulo, texto, aoSubmeter }) {
 
 
   function aoEnviarDados() {
+  console.log("TESTE Salvar")
+
     const estudante = {
       nome,
       email,
@@ -59,7 +61,9 @@ function ModalForm({ modalIsOpen, closeModal, titulo, texto, aoSubmeter }) {
 
     closeModal();
   }
-
+ function EditarDados(){
+  console.log("TESTE Editar")
+ }
   
   return (
     <Modal
@@ -118,8 +122,8 @@ function ModalForm({ modalIsOpen, closeModal, titulo, texto, aoSubmeter }) {
         />
       </form>
       <div className={styles.modalButtons}>
-        <button className={styles.modalButtonSubmit} onClick={aoEnviarDados}>
-          Enviar
+        <button className={styles.modalButtonSubmit} onClick={editandoSim ? EditarDados : aoEnviarDados}>
+          Salvar
         </button>
         <button className={styles.modalButtonClose} onClick={closeModal}>
           Fechar
