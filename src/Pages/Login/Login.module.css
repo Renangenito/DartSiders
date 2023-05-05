@@ -22,7 +22,7 @@
     border-radius: 20px;
 }
 
-.caixaLogo{
+.caixaLogo {
     width: 63%;
 }
 
@@ -54,7 +54,7 @@
     align-items: center;
 }
 
-.caixaInput{
+.caixaInput {
     width: 95%;
 }
 
@@ -104,22 +104,33 @@
     text-transform: uppercase;
 }
 
+.caixaFormulario a {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17px;
+    text-decoration-line: underline;
+    margin-top: 24px;
+}
+
 @media screen and (max-width: 1200px) {
-    .telaDeLogin{
+    .telaDeLogin {
         background-image: url("../../assets/background-login-tablet.png");
     }
 }
 
 
 @media screen and (max-width: 500px) {
-    .telaDeLogin{
+    .telaDeLogin {
         background-image: url("../../assets/background-login-mobile.png");
         background-size: 100%;
     }
-    .caixaFormulario{
+
+    .caixaFormulario {
         width: 90%;
     }
-    .caixaFormulario p{
+
+    .caixaFormulario p {
         text-align: center;
         width: 85%;
     }
