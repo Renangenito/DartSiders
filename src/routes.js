@@ -11,7 +11,7 @@ import Login from "./Pages/Login";
 function AppRoutes() {
   const [show, setShow] = useState(true);
   const [destacado, setDestacado] = useState(true);
-  const [autenticado, setAutenticado] = useState(false);
+  const [autenticado, setAutenticado] = useState(true);
 
   const showMenuHumburgher = (e) => {
     setShow(!show);
