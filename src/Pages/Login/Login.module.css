@@ -1,0 +1,126 @@
+.telaDeLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../../assets/background-login-desktop.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.caixaFormulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 475px;
+    height: 525px;
+    background-color: #FFFFFF;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.caixaLogo{
+    width: 63%;
+}
+
+.caixaFormulario h2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #A700D0;
+    margin: 32px 0 16px 0;
+}
+
+.caixaFormulario p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 17px;
+    color: #6C6C6C;
+    margin: 0 0 32px 0;
+}
+
+.caixaFormulario form {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caixaInput{
+    width: 95%;
+}
+
+.caixaFormulario form label {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #6C6C6C;
+    margin: 0;
+}
+
+.caixaFormulario form input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px;
+    margin: 10px 0 24px 0;
+}
+
+.caixaFormulario form input::placeholder {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #CDCDCD;
+    padding-left: 15px;
+}
+
+.caixaFormulario form button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 49px;
+    background: #A700D0;
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    font-style: normal;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 1200px) {
+    .telaDeLogin{
+        background-image: url("../../assets/background-login-tablet.png");
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .telaDeLogin{
+        background-image: url("../../assets/background-login-mobile.png");
+        background-size: 100%;
+    }
+    .caixaFormulario{
+        width: 90%;
+    }
+    .caixaFormulario p{
+        text-align: center;
+        width: 85%;
+    }
+}
