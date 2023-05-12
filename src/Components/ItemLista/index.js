@@ -2,10 +2,10 @@ import styles from './ItemLista.module.css';
 // import imagemJulia from '../../assets/imagem-julia.png';
 import { SlTrash, SlPencil } from "react-icons/sl";
 
-function ItemLista({id, imagemPerfil, nome, email, telefone, matricula, admissao , aoEditar}) {
+function ItemLista({imagemPerfil, nome, email, telefone, matricula, admissao , abrirModalParaEdicao}) {
     
     function handleEditar() {
-        aoEditar(id);
+        abrirModalParaEdicao();
     }
 
     return (
