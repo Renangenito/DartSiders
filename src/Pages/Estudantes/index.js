@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 function Estudantes() {
   const [estudantes, setEstudantes] = useState([]);
   const [editando, setEditando] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [estudanteSelecionado, setEstudanteSelecionado] = useState(null)
 
   const url = "http://localhost:8080/estudantes";
 
@@ -16,7 +18,6 @@ function Estudantes() {
       .then((dados) => setEstudantes(dados));
   }, []);
 
-  const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -40,10 +41,17 @@ function Estudantes() {
     
   }
 
-  function aoEditar(id){
-    setEditando(true);
+  // function aoEditar(id){
+  //   setEditando(true);
+  //   openModal();
+    
+  //   console.log("EDITANDO..... ID:", estudantes.filter((est)=> est.id === id));
+  // }
+
+  function abrirModalParaEdicao(estudante){
+    setEstudanteSelecionado(estudante)
+    console.log("ESTUDANTE AQUI: ", estudante)
     openModal();
-    console.log("EDITANDO..... ID:", id);
   }
 
 
@@ -67,16 +75,17 @@ function Estudantes() {
               telefone={estudante.telefone}
               matricula={estudante.matricula}
               admissao={estudante.admissao}
-              aoEditar={aoEditar}
+              abrirModalParaEdicao={() => abrirModalParaEdicao(estudante)}
               editando={editando}
             />
           ))}
         </section>
         <ModalForm
+          estudante={estudanteSelecionado}
           aoSubmeter={aoSubmeter}
           editandoSim={editando}
-          titulo={editando ? "Editando estudante" : "Novo Estudante"}
-          texto={editando ? "Editar" : "Cadastrar"}
+          titulo={estudanteSelecionado ? "Editando estudante" : "Novo Estudante"}
+          texto={estudanteSelecionado ? "Editar" : "Cadastrar"}
           modalIsOpen={modalIsOpen}
           closeModal={closeModal}
         />
