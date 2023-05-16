@@ -35,6 +35,7 @@ function ModalForm({
   const [matricula, setMatricula] = useState(estudante?.matricula || "");
   const [admissao, setAdmissao] = useState(estudante?.admissao || "");
   const [imagem, setImagem] = useState(estudante?.imagem || "");
+  // const url = "http://localhost:8080/estudantes";
 
   function handleImagemSelecionada(event) {
     const arquivo = event.target.files[0];
@@ -56,24 +57,42 @@ function ModalForm({
       imagem,
     };
     aoSubmeter(estudante);
+    fecharModal();
+  }
+  function EditarDados() {
+    const estudanteEditado = {
+      nome,
+      email,
+      telefone,
+      matricula,
+      admissao,
+      imagem,
+    };
+    fetch(`http://localhost:8080/estudantes/${estudante.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(estudanteEditado),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
 
+      fecharModal();
+  }
+
+  function fecharModal(){
     setNome("");
     setEmail("");
     setTelefone("");
     setMatricula("");
     setAdmissao("");
     setImagem("");
-
-    closeModal();
-  }
-  function EditarDados() {
-    
-    console.log("TESTE Editar");
+    closeModal()
   }
 
   return (
-    <>
-      {modalIsOpen && (
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
@@ -83,16 +102,17 @@ function ModalForm({
         >
           <div className={styles.modalHeader}>
             <h2>{titulo}</h2>
-            <AiOutlineClose title="Fechar" onClick={closeModal} />
+            <AiOutlineClose title="Fechar" onClick={fecharModal} />
           </div>
           <p className={styles.modalTexto}>{texto}</p>
-          <form>
+          <form >
             <Input
               label="Nome"
               type="text"
               placeholder="Digite o seu nome"
               valor={nome}
               aoAlterado={(valor) => setNome(valor)}
+              obrigatorio={true}
             />
             <Input
               label="Email"
@@ -100,6 +120,8 @@ function ModalForm({
               placeholder="email@exemplo.com"
               valor={email}
               aoAlterado={(valor) => setEmail(valor)}
+              obrigatorio={true}
+
             />
             <Input
               label="Telefone"
@@ -107,6 +129,8 @@ function ModalForm({
               placeholder="Digite o seu Telefone"
               valor={telefone}
               aoAlterado={(valor) => setTelefone(valor)}
+              obrigatorio={true}
+
             />
             <Input
               label="Matrícula"
@@ -114,12 +138,16 @@ function ModalForm({
               placeholder="Digite o número da matrícula"
               valor={matricula}
               aoAlterado={(valor) => setMatricula(valor)}
+              obrigatorio={true}
+
             />
             <Input
               label="Data Admissão"
               type="date"
               valor={admissao}
               aoAlterado={(valor) => setAdmissao(valor)}
+              obrigatorio={true}
+
             />
             <label style={{ fontWeight: "bold" }}>Selecionar Imagem</label>
             <input
@@ -127,6 +155,8 @@ function ModalForm({
               type="file"
               valor={imagem}
               onChange={handleImagemSelecionada}
+              obrigatorio={true}
+
             />
           </form>
           <div className={styles.modalButtons}>
@@ -136,13 +166,12 @@ function ModalForm({
             >
               Salvar
             </button>
-            <button className={styles.modalButtonClose} onClick={closeModal}>
+            <button className={styles.modalButtonClose} onClick={fecharModal}>
               Fechar
             </button>
           </div>
         </Modal>
-      )}
-    </>
+    
   );
 }
 

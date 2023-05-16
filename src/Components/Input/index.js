@@ -5,7 +5,7 @@ function Input({ label, type, placeholder, valor, aoAlterado }) {
     function aoDigitar(e){
         aoAlterado(e.target.value)
     }
-   
+ 
     return (
         <div className={styles.input}>
             <label>{label}</label>
