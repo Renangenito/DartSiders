@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 function Estudantes() {
   const [estudantes, setEstudantes] = useState([]);
-  const [editando, setEditando] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [estudanteSelecionado, setEstudanteSelecionado] = useState(null)
 
@@ -16,7 +15,7 @@ function Estudantes() {
     fetch("http://localhost:8080/estudantes")
       .then((resposta) => resposta.json())
       .then((dados) => setEstudantes(dados));
-  }, []);
+  }, [estudantes]);
 
 
   function openModal() {
@@ -41,12 +40,7 @@ function Estudantes() {
     
   }
 
-  // function aoEditar(id){
-  //   setEditando(true);
-  //   openModal();
-    
-  //   console.log("EDITANDO..... ID:", estudantes.filter((est)=> est.id === id));
-  // }
+
 
   function abrirModalParaEdicao(estudante){
     setEstudanteSelecionado(estudante)
@@ -54,13 +48,16 @@ function Estudantes() {
     openModal();
   }
 
-
+  function abrirModalParaSalvar(){
+    setEstudanteSelecionado("")
+    openModal(); 
+  }
   return (
     <LayoutPadrao>
       <div className={styles.estudantes}>
         <div className={styles.estudantesTituloBotao}>
           <h1 className={styles.tituloEstudantes}>Lista de Estudantes</h1>
-          <button className={styles.botaoAdicionar} onClick={() => {openModal(); setEditando(false);}}>
+          <button className={styles.botaoAdicionar} onClick={abrirModalParaSalvar}>
             Adicionar novos estudantes
           </button>
         </div>
@@ -76,19 +73,19 @@ function Estudantes() {
               matricula={estudante.matricula}
               admissao={estudante.admissao}
               abrirModalParaEdicao={() => abrirModalParaEdicao(estudante)}
-              editando={editando}
             />
           ))}
         </section>
+        {modalIsOpen && (
         <ModalForm
           estudante={estudanteSelecionado}
           aoSubmeter={aoSubmeter}
-          editandoSim={editando}
           titulo={estudanteSelecionado ? "Editando estudante" : "Novo Estudante"}
           texto={estudanteSelecionado ? "Editar" : "Cadastrar"}
           modalIsOpen={modalIsOpen}
           closeModal={closeModal}
         />
+        )}
       </div>
     </LayoutPadrao>
   );
