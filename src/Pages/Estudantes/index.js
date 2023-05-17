@@ -3,18 +3,17 @@ import LayoutPadrao from "../../Components/LayoutPadrao";
 import ModalForm from "../../Components/ModalForm/ModalForm";
 import styles from "./Estudantes.module.css";
 import { useEffect, useState } from "react";
-
 function Estudantes() {
   const [estudantes, setEstudantes] = useState([]);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [estudanteSelecionado, setEstudanteSelecionado] = useState(null)
-
   const url = "http://localhost:8080/estudantes";
 
   useEffect(() => {
     fetch("http://localhost:8080/estudantes")
       .then((resposta) => resposta.json())
       .then((dados) => setEstudantes(dados));
+      
   }, [estudantes]);
 
 
@@ -40,6 +39,18 @@ function Estudantes() {
     
   }
 
+  function aoEditar(estudanteEditado, estudanteId){
+    fetch(`http://localhost:8080/estudantes/${estudanteId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(estudanteEditado),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  }
 
 
   function abrirModalParaEdicao(estudante){
@@ -52,6 +63,7 @@ function Estudantes() {
     setEstudanteSelecionado("")
     openModal(); 
   }
+
   return (
     <LayoutPadrao>
       <div className={styles.estudantes}>
@@ -60,6 +72,7 @@ function Estudantes() {
           <button className={styles.botaoAdicionar} onClick={abrirModalParaSalvar}>
             Adicionar novos estudantes
           </button>
+          
         </div>
         <section className={styles.secaoLista}>
           {estudantes.map((estudante) => (
@@ -80,6 +93,7 @@ function Estudantes() {
         <ModalForm
           estudante={estudanteSelecionado}
           aoSubmeter={aoSubmeter}
+          aoEditar={aoEditar}
           titulo={estudanteSelecionado ? "Editando estudante" : "Novo Estudante"}
           texto={estudanteSelecionado ? "Editar" : "Cadastrar"}
           modalIsOpen={modalIsOpen}
