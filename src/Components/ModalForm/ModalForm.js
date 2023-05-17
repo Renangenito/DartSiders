@@ -3,11 +3,12 @@ import Input from "../Input";
 import styles from "./ModalForm.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.7)",
-    zIndex: 9999,
+    zIndex: 1000,
   },
   content: {
     width: "300px",
@@ -27,6 +28,7 @@ function ModalForm({
   titulo,
   texto,
   aoSubmeter,
+  aoEditar,
   estudante,
 }) {
   const [nome, setNome] = useState(estudante?.nome || "");
@@ -47,7 +49,7 @@ function ModalForm({
   }
 
   function aoEnviarDados() {
-
+    if (validate()) return;
     const estudante = {
       nome,
       email,
@@ -60,6 +62,7 @@ function ModalForm({
     fecharModal();
   }
   function EditarDados() {
+    if (validate()) return;
     const estudanteEditado = {
       nome,
       email,
@@ -68,110 +71,136 @@ function ModalForm({
       admissao,
       imagem,
     };
-    fetch(`http://localhost:8080/estudantes/${estudante.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(estudanteEditado),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+    aoEditar(estudanteEditado, estudante.id);
 
-      fecharModal();
+    fecharModal();
   }
 
-  function fecharModal(){
+  function fecharModal() {
     setNome("");
     setEmail("");
     setTelefone("");
     setMatricula("");
     setAdmissao("");
     setImagem("");
-    closeModal()
+    closeModal();
   }
-
+  function validate() {
+    if (!nome) {
+      enqueueSnackbar("Erro: É necessário preencher o campo nome!");
+      return true;
+    }
+    if (!email) {
+      enqueueSnackbar("Erro: É necessário preencher o campo email corretamente!");
+      return true;
+    }
+    if (!telefone) {
+      enqueueSnackbar("Erro: É necessário preencher o campo Telefone!");
+      return true;
+    }
+    if (!matricula) {
+      enqueueSnackbar("Erro: É necessário preencher o campo matrícula!");
+      return true;
+    }
+    if (!admissao) {
+      enqueueSnackbar("Erro: É necessário preencher o campo data de admissão!");
+      return true;
+    }
+    if (!imagem) {
+      enqueueSnackbar("Erro: É necessário adicionar uma imagem!");
+      return true;
+    }
+  }
   return (
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-          ariaHideApp={false}
-        >
-          <div className={styles.modalHeader}>
-            <h2>{titulo}</h2>
-            <AiOutlineClose title="Fechar" onClick={fecharModal} />
-          </div>
-          <p className={styles.modalTexto}>{texto}</p>
-          <form >
-            <Input
-              label="Nome"
-              type="text"
-              placeholder="Digite o seu nome"
-              valor={nome}
-              aoAlterado={(valor) => setNome(valor)}
-              obrigatorio={true}
-            />
-            <Input
-              label="Email"
-              type="email"
-              placeholder="email@exemplo.com"
-              valor={email}
-              aoAlterado={(valor) => setEmail(valor)}
-              obrigatorio={true}
-
-            />
-            <Input
-              label="Telefone"
-              type="tel"
-              placeholder="Digite o seu Telefone"
-              valor={telefone}
-              aoAlterado={(valor) => setTelefone(valor)}
-              obrigatorio={true}
-
-            />
-            <Input
-              label="Matrícula"
-              type="text"
-              placeholder="Digite o número da matrícula"
-              valor={matricula}
-              aoAlterado={(valor) => setMatricula(valor)}
-              obrigatorio={true}
-
-            />
-            <Input
-              label="Data Admissão"
-              type="date"
-              valor={admissao}
-              aoAlterado={(valor) => setAdmissao(valor)}
-              obrigatorio={true}
-
-            />
-            <label style={{ fontWeight: "bold" }}>Selecionar Imagem</label>
-            <input
-              style={{ marginTop: ".5em" }}
-              type="file"
-              valor={imagem}
-              onChange={handleImagemSelecionada}
-              obrigatorio={true}
-
-            />
-          </form>
-          <div className={styles.modalButtons}>
-            <button
-              className={styles.modalButtonSubmit}
-              onClick={estudante ? EditarDados : aoEnviarDados}
-            >
-              Salvar
-            </button>
-            <button className={styles.modalButtonClose} onClick={fecharModal}>
-              Fechar
-            </button>
-          </div>
-        </Modal>
-    
+    <>
+      <SnackbarProvider
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        variant="error"
+        style={{ zIndex: 10000, opacity: 2 }}
+      />
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+        ariaHideApp={false}
+      >
+        <div className={styles.modalHeader}>
+          <h2>{titulo}</h2>
+          <AiOutlineClose title="Fechar" onClick={fecharModal} />
+        </div>
+        <p className={styles.modalTexto}>{texto}</p>
+        <form>
+          <Input
+            label="Nome"
+            type="text"
+            placeholder="Digite o seu nome"
+            valor={nome}
+            aoAlterado={(valor) => setNome(valor)}
+            obrigatorio={true}
+          />
+          <Input
+            label="Email"
+            type="email"
+            placeholder="email@exemplo.com"
+            valor={email}
+            aoAlterado={(valor) => setEmail(valor)}
+            obrigatorio={true}
+          />
+          <Input
+            label="Telefone"
+            type="tel"
+            placeholder="Digite o seu Telefone"
+            valor={telefone}
+            aoAlterado={(valor) => setTelefone(valor)}
+            obrigatorio={true}
+          />
+          <Input
+            label="Matrícula"
+            type="text"
+            placeholder="Digite o número da matrícula"
+            valor={matricula}
+            aoAlterado={(valor) => setMatricula(valor)}
+            obrigatorio={true}
+          />
+          <Input
+            label="Data Admissão"
+            type="date"
+            valor={admissao}
+            aoAlterado={(valor) => setAdmissao(valor)}
+            obrigatorio={true}
+          />
+          <label style={{ fontWeight: "bold" }}>Selecionar Imagem</label>
+          <input
+            style={{ marginTop: ".5em" }}
+            type="file"
+            valor={imagem}
+            onChange={handleImagemSelecionada}
+            obrigatorio={true}
+          />
+        </form>
+        <div className={styles.modalButtons}>
+          <button
+            className={styles.modalButtonSubmit}
+            onClick={estudante ? EditarDados : aoEnviarDados}
+          >
+            Salvar
+          </button>
+          <button className={styles.modalButtonClose} onClick={fecharModal}>
+            Fechar
+          </button>
+          <button
+            className={styles.modalButtonClose}
+            onClick={() => enqueueSnackbar("Olá, Mundo!!!!")}
+          >
+            Abrir janalinha
+          </button>
+        </div>
+      </Modal>
+    </>
   );
 }
 
