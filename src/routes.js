@@ -5,19 +5,21 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Estudantes from "./Pages/Estudantes";
 import Login from "./Pages/Login";
 import LayoutBase from "./Pages/LayoutBase";
-
+import { SnackbarProvider } from "notistack";
 function AppRoutes() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<LayoutBase />}>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/estudantes" element={<Estudantes />} />
-        </Route>
-        <Route path="/Login" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
+    <SnackbarProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<LayoutBase />}>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/estudantes" element={<Estudantes />} />
+          </Route>
+          <Route path="/Login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </SnackbarProvider>
   );
 }
 
