@@ -37,7 +37,6 @@ function ModalForm({
   const [matricula, setMatricula] = useState(estudante?.matricula || "");
   const [admissao, setAdmissao] = useState(estudante?.admissao || "");
   const [imagem, setImagem] = useState(estudante?.imagem || "");
-  // const url = "http://localhost:8080/estudantes";
 
   function handleImagemSelecionada(event) {
     const arquivo = event.target.files[0];
@@ -90,7 +89,7 @@ function ModalForm({
       enqueueSnackbar("Erro: É necessário preencher o campo nome!");
       return true;
     }
-    if (!email) {
+    if (!validaEmail(email)) {
       enqueueSnackbar("Erro: É necessário preencher o campo email corretamente!");
       return true;
     }
@@ -110,6 +109,11 @@ function ModalForm({
       enqueueSnackbar("Erro: É necessário adicionar uma imagem!");
       return true;
     }
+  }
+  function validaEmail(email){
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValid = emailRegex.test(email);
+    return isValid;
   }
   return (
     <>
@@ -140,7 +144,6 @@ function ModalForm({
             placeholder="Digite o seu nome"
             valor={nome}
             aoAlterado={(valor) => setNome(valor)}
-            obrigatorio={true}
           />
           <Input
             label="Email"
@@ -148,7 +151,6 @@ function ModalForm({
             placeholder="email@exemplo.com"
             valor={email}
             aoAlterado={(valor) => setEmail(valor)}
-            obrigatorio={true}
           />
           <Input
             label="Telefone"
@@ -156,7 +158,6 @@ function ModalForm({
             placeholder="Digite o seu Telefone"
             valor={telefone}
             aoAlterado={(valor) => setTelefone(valor)}
-            obrigatorio={true}
           />
           <Input
             label="Matrícula"
@@ -164,14 +165,12 @@ function ModalForm({
             placeholder="Digite o número da matrícula"
             valor={matricula}
             aoAlterado={(valor) => setMatricula(valor)}
-            obrigatorio={true}
           />
           <Input
             label="Data Admissão"
             type="date"
             valor={admissao}
             aoAlterado={(valor) => setAdmissao(valor)}
-            obrigatorio={true}
           />
           <label style={{ fontWeight: "bold" }}>Selecionar Imagem</label>
           <input
@@ -179,7 +178,6 @@ function ModalForm({
             type="file"
             valor={imagem}
             onChange={handleImagemSelecionada}
-            obrigatorio={true}
           />
         </form>
         <div className={styles.modalButtons}>
@@ -191,12 +189,6 @@ function ModalForm({
           </button>
           <button className={styles.modalButtonClose} onClick={fecharModal}>
             Fechar
-          </button>
-          <button
-            className={styles.modalButtonClose}
-            onClick={() => enqueueSnackbar("Olá, Mundo!!!!")}
-          >
-            Abrir janalinha
           </button>
         </div>
       </Modal>
