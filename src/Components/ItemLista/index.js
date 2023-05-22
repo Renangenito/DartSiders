@@ -2,13 +2,13 @@ import styles from './ItemLista.module.css';
 // import imagemJulia from '../../assets/imagem-julia.png';
 import { SlTrash, SlPencil } from "react-icons/sl";
 
-function ItemLista({id, imagemPerfil, nome, email, telefone, matricula, admissao , abrirModalParaEdicao, deletarEstudante}) {
+function ItemLista({imagemPerfil, nome, email, telefone, matricula, admissao , abrirModalParaEdicao, abrirModalParaDeletar}) {
     
     function handleEditar() {
         abrirModalParaEdicao();
     }
     function handleDeletar(){
-        deletarEstudante(id);
+        abrirModalParaDeletar();
     }
     return (
         <div className={styles.itemLista}>
