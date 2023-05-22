@@ -17,7 +17,13 @@ const customStyles = {
     outline: "none",
   },
 };
-function ModalExclusao({ titulo, texto, modaDeleteOpen, modaDeleteclose }) {
+function ModalExclusao({ titulo, texto, modaDeleteOpen, modaDeleteclose, estudante, aoDeletar }) {
+
+function aoDeletarDados(){
+  aoDeletar(estudante.id)
+  modaDeleteclose();
+}
+
   return (
     <Modal
       isOpen={modaDeleteOpen}
@@ -32,7 +38,7 @@ function ModalExclusao({ titulo, texto, modaDeleteOpen, modaDeleteclose }) {
       </div>
       <p className={styles.modalTexto}>{texto}</p>
       <div className={styles.modalButtons}>
-        <button className={styles.modalButtonSubmit}>Excluir</button>
+        <button className={styles.modalButtonSubmit} onClick={aoDeletarDados}>Excluir</button>
         <button className={styles.modalButtonClose} onClick={modaDeleteclose}>Cancelar</button>
       </div>
     </Modal>

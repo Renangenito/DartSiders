@@ -43,14 +43,26 @@ function Estudantes() {
       body: JSON.stringify(estudante),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+      .then((data) => {
+        console.log(data)
+        enqueueSnackbar("Estudante adicionado com sucesso!!", {
+          variant: "success",
+          anchorOrigin: { horizontal: "center", vertical: "top" },
+        });
+      })
 
-      enqueueSnackbar('Estudante adicionado com sucesso!!', { variant: 'success',  anchorOrigin: {horizontal: "center", vertical: "top"}});
+      .catch((error) => {
+        console.error(error)
+        enqueueSnackbar("Erro ao tentar adicionar um novo estudante!!", {
+          variant: "error",
+          anchorOrigin: { horizontal: "center", vertical: "top" },
+        });
+      });
+
+   
   }
 
   function aoEditar(estudanteEditado, estudanteId) {
-
     fetch(url + estudanteId, {
       method: "PUT",
       headers: {
@@ -59,15 +71,48 @@ function Estudantes() {
       body: JSON.stringify(estudanteEditado),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+      .then((data) => {
+        console.log(data);
+        enqueueSnackbar("Estudante editado com sucesso!!", {
+          variant: "success",
+          anchorOrigin: { horizontal: "center", vertical: "top" },
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        enqueueSnackbar("Erro ao tentar editar o estudante!!", {
+          variant: "error",
+          anchorOrigin: { horizontal: "center", vertical: "top" },
+        });
+      });
 
-      enqueueSnackbar('Estudante editado com sucesso!!', { variant: 'success',  anchorOrigin: {horizontal: "center", vertical: "top"}});
+    
   }
-
-  function aoDeletar(id) {
+  function aoDeletar(estudanteId) {
+    console.log("DELETOU!!!", estudanteId);
+    fetch(url + estudanteId, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Item excluído com sucesso:", data);
+        enqueueSnackbar("Estudante deletado com sucesso!!", {
+          variant: "success",
+          anchorOrigin: { horizontal: "center", vertical: "top" },
+        });
+      })
+      .catch((error) => {
+        console.error("Erro ao excluir o item:", error);
+        enqueueSnackbar("Erro ao tentar deletar o estudante!!", {
+          variant: "error",
+          anchorOrigin: { horizontal: "center", vertical: "top" },
+        });
+      });
+  }
+  function abrirModalParaDeletar(estudante) {
+    setEstudanteSelecionado(estudante);
+    console.log("TESTE ESTUDANTE AQUI: ", estudante);
     openModalDelete();
-    console.log("ID AQUI: ", id);
   }
 
   function abrirModalParaEdicao(estudante) {
@@ -81,7 +126,7 @@ function Estudantes() {
   }
 
   return (
-    <LayoutPadrao> 
+    <LayoutPadrao>
       <div className={styles.estudantes}>
         <div className={styles.estudantesTituloBotao}>
           <h1 className={styles.tituloEstudantes}>Lista de Estudantes</h1>
@@ -104,7 +149,7 @@ function Estudantes() {
               matricula={estudante.matricula}
               admissao={estudante.admissao}
               abrirModalParaEdicao={() => abrirModalParaEdicao(estudante)}
-              deletarEstudante={aoDeletar}
+              abrirModalParaDeletar={() => abrirModalParaDeletar(estudante)}
             />
           ))}
         </section>
@@ -121,12 +166,16 @@ function Estudantes() {
             closeModal={closeModal}
           />
         )}
-        <ModalExclusao
-          modaDeleteOpen={isOpenDelete}
-          modaDeleteclose={modaDeleteclose}
-          titulo="Excluir Estudante"
-          texto="Você quer realmente excluir esse estudante? Não será possível resgatá-lo após a confirmação!"
-        />
+        {isOpenDelete && (
+          <ModalExclusao
+            aoDeletar={aoDeletar}
+            estudante={estudanteSelecionado}
+            modaDeleteOpen={isOpenDelete}
+            modaDeleteclose={modaDeleteclose}
+            titulo="Excluir Estudante"
+            texto={`Você quer realmente excluir esse estudante? Não será possível resgatá-lo após a confirmação!`}
+          />
+        )}
       </div>
     </LayoutPadrao>
   );
