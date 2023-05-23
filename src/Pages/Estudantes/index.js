@@ -18,7 +18,7 @@ function Estudantes() {
     fetch(url)
       .then((resposta) => resposta.json())
       .then((dados) => setEstudantes(dados));
-  }, [estudantes]);
+  }, []);
 
   function openModal() {
     setIsOpen(true);
@@ -49,6 +49,7 @@ function Estudantes() {
           variant: "success",
           anchorOrigin: { horizontal: "center", vertical: "top" },
         });
+        setEstudantes([...estudantes, estudante])
       })
 
       .catch((error) => {
@@ -77,6 +78,10 @@ function Estudantes() {
           variant: "success",
           anchorOrigin: { horizontal: "center", vertical: "top" },
         });
+        const index = estudantes.findIndex(estudante => estudante.id === estudanteId);
+        const novaListaEstudantes = [...estudantes];
+        novaListaEstudantes[index] = estudanteEditado;
+        setEstudantes(novaListaEstudantes);
       })
       .catch((error) => {
         console.error(error);
@@ -100,6 +105,7 @@ function Estudantes() {
           variant: "success",
           anchorOrigin: { horizontal: "center", vertical: "top" },
         });
+        setEstudantes(estudantes.filter(estudante => estudante.id !== estudanteId))
       })
       .catch((error) => {
         console.error("Erro ao excluir o item:", error);
