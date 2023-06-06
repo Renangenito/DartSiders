@@ -110,7 +110,23 @@
     font-weight: 400;
     line-height: 17px;
     text-decoration-line: underline;
-    margin-top: 24px;
+    padding: 0.3em;
+    border-radius: 5px;
+    color: #A700D0;
+}
+
+.links{
+    width: 80%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.links a:hover{
+    background-color: #A700D0;
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 1200px) {

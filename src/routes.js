@@ -6,6 +6,7 @@ import Estudantes from "./Pages/Estudantes";
 import Login from "./Pages/Login";
 import LayoutBase from "./Pages/LayoutBase";
 import { SnackbarProvider } from "notistack";
+import DadosPessoaisForm from "./Pages/Cadastro/DadosPessoaisForm";
 function AppRoutes() {
   return (
     <SnackbarProvider>
@@ -17,6 +18,7 @@ function AppRoutes() {
             <Route path="/estudantes" element={<Estudantes />} />
           </Route>
           <Route path="/Login" element={<Login />} />
+          <Route path="/dadosPessoais" element={<DadosPessoaisForm />} />
         </Routes>
       </BrowserRouter>
     </SnackbarProvider>

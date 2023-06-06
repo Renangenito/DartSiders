@@ -1,0 +1,23 @@
+.listaSuspensa{
+    display: flex;
+    flex-direction: column;
+    margin: .5em 0;
+    width: 50%;
+}
+
+.listaSuspensa label{
+    color: #6c6c6c;
+    font-weight: bold;
+}
+
+.listaSuspensa select{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    border: 1.5px solid rgb(224, 224, 224);
+}
+
+.listaSuspensa option::placeholder{
+    color: #9b9a9a;
+}
