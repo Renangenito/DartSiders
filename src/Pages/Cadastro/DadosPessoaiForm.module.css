@@ -1,0 +1,84 @@
+.telaDeDadosCadastrais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../../assets/background-login-desktop.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.caixaFormulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 410px;
+    background-color: #FFFFFF;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 2em 0;
+}
+
+.caixaLogo {
+    width: 64%;
+}
+
+.caixaFormulario h2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #A700D0;
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+.caixaFormulario p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 17px;
+    color: #6C6C6C;
+    margin: 0 0 14px 0;
+}
+.caixaFormulario form{
+    width: 80%;
+}
+.divInput{
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.divInput input{
+    width: 85%;
+}
+
+@media screen and (max-width: 1200px) {
+    .telaDeDadosCadastrais {
+        background-image: url("../../assets/background-login-tablet.png");
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .telaDeDadosCadastrais {
+        background-image: url("../../assets/background-login-mobile.png");
+        background-size: 100%;
+    }
+
+    .caixaFormulario {
+        width: 90%;
+    }
+
+    .caixaFormulario p {
+        text-align: center;
+        width: 85%;
+    }
+}

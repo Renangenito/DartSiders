@@ -1,11 +1,16 @@
 import styles from "./Login.module.css";
 import logo from "../../assets/logo-dartsiders.png";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <div className={styles.telaDeLogin}>
       <div className={styles.caixaFormulario}>
-        <img className={styles.caixaLogo} src={logo} alt="Logo do site DartSiders" />
+        <img
+          className={styles.caixaLogo}
+          src={logo}
+          alt="Logo do site DartSiders"
+        />
         <h2>Login</h2>
         <p>Insira suas credenciais para acessar sua conta:</p>
         <form>
@@ -19,7 +24,10 @@ function Login() {
           </div>
           <button type="submit">Login</button>
         </form>
-        <a href="https://facebook.com">Esqueci minha senha</a>
+        <div className={styles.links}>
+          <Link to='/login'>Esqueci minha senha</Link>
+          <Link to='/DadosPessoais'>CADASTRAR</Link>
+        </div>
       </div>
     </div>
   );
