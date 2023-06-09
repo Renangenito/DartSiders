@@ -84,7 +84,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
-    color: #CDCDCD;
+    color: #b8b7b7;
     padding-left: 15px;
 }
 
@@ -102,6 +102,10 @@
     font-style: normal;
     font-size: 14px;
     text-transform: uppercase;
+}
+.caixaFormulario form button:hover{
+    background-color: #ca26f3;
+    cursor: pointer;
 }
 
 .caixaFormulario a {

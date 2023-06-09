@@ -1,6 +1,6 @@
 import styles from './CampoTexto.module.css'
 
-function CampoTexto ({label, type, placeholder, valor, onChange}){
+function CampoTexto ({label, type = 'text', placeholder, valor, onChange}){
     return(
         <div className={styles.campoTexto}>
             <label>{label}</label>
@@ -8,7 +8,7 @@ function CampoTexto ({label, type, placeholder, valor, onChange}){
                 type={type} 
                 placeholder={placeholder} 
                 value={valor}
-                onChange={onChange}
+                onChange={evento => onChange(evento.target.value)}
                 />
         </div>
     )

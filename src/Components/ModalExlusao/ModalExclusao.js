@@ -38,8 +38,8 @@ function aoDeletarDados(){
       </div>
       <p className={styles.modalTexto}>{texto}</p>
       <div className={styles.modalButtons}>
-        <button className={styles.modalButtonSubmit} onClick={aoDeletarDados}>Excluir</button>
-        <button className={styles.modalButtonClose} onClick={modaDeleteclose}>Cancelar</button>
+        <button type="button" className={styles.modalButtonSubmit} onClick={aoDeletarDados}>Excluir</button>
+        <button type="button" className={styles.modalButtonClose} onClick={modaDeleteclose}>Cancelar</button>
       </div>
     </Modal>
   );

@@ -44,23 +44,21 @@ function Estudantes() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         enqueueSnackbar("Estudante adicionado com sucesso!!", {
           variant: "success",
           anchorOrigin: { horizontal: "center", vertical: "top" },
         });
-        setEstudantes([...estudantes, estudante])
+        setEstudantes([...estudantes, estudante]);
       })
 
       .catch((error) => {
-        console.error(error)
+        console.error(error);
         enqueueSnackbar("Erro ao tentar adicionar um novo estudante!!", {
           variant: "error",
           anchorOrigin: { horizontal: "center", vertical: "top" },
         });
       });
-
-   
   }
 
   function aoEditar(estudanteEditado, estudanteId) {
@@ -78,7 +76,9 @@ function Estudantes() {
           variant: "success",
           anchorOrigin: { horizontal: "center", vertical: "top" },
         });
-        const index = estudantes.findIndex(estudante => estudante.id === estudanteId);
+        const index = estudantes.findIndex(
+          (estudante) => estudante.id === estudanteId
+        );
         const novaListaEstudantes = [...estudantes];
         novaListaEstudantes[index] = estudanteEditado;
         setEstudantes(novaListaEstudantes);
@@ -90,8 +90,6 @@ function Estudantes() {
           anchorOrigin: { horizontal: "center", vertical: "top" },
         });
       });
-
-    
   }
   function aoDeletar(estudanteId) {
     console.log("DELETOU!!!", estudanteId);
@@ -105,7 +103,9 @@ function Estudantes() {
           variant: "success",
           anchorOrigin: { horizontal: "center", vertical: "top" },
         });
-        setEstudantes(estudantes.filter(estudante => estudante.id !== estudanteId))
+        setEstudantes(
+          estudantes.filter((estudante) => estudante.id !== estudanteId)
+        );
       })
       .catch((error) => {
         console.error("Erro ao excluir o item:", error);
@@ -137,6 +137,7 @@ function Estudantes() {
         <div className={styles.estudantesTituloBotao}>
           <h1 className={styles.tituloEstudantes}>Lista de Estudantes</h1>
           <button
+            type="button"
             className={styles.botaoAdicionar}
             onClick={abrirModalParaSalvar}
           >
