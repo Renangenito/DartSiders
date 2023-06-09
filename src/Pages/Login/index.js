@@ -22,7 +22,7 @@ function Login() {
             <label htmlFor="senha">Senha</label>
             <input type="text" placeholder="Digite sua senha" id="senha" />
           </div>
-          <button type="submit">Login</button>
+          <button type="button">Login</button>
         </form>
         <div className={styles.links}>
           <Link to='/login'>Esqueci minha senha</Link>

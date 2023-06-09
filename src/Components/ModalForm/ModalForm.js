@@ -90,7 +90,9 @@ function ModalForm({
       return true;
     }
     if (!validaEmail(email)) {
-      enqueueSnackbar("Erro: É necessário preencher o campo email corretamente!");
+      enqueueSnackbar(
+        "Erro: É necessário preencher o campo email corretamente!"
+      );
       return true;
     }
     if (!telefone) {
@@ -110,7 +112,7 @@ function ModalForm({
       return true;
     }
   }
-  function validaEmail(email){
+  function validaEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValid = emailRegex.test(email);
     return isValid;
@@ -182,12 +184,17 @@ function ModalForm({
         </form>
         <div className={styles.modalButtons}>
           <button
+            type="button"
             className={styles.modalButtonSubmit}
             onClick={estudante ? EditarDados : aoEnviarDados}
           >
             Salvar
           </button>
-          <button className={styles.modalButtonClose} onClick={fecharModal}>
+          <button
+            type="button"
+            className={styles.modalButtonClose}
+            onClick={fecharModal}
+          >
             Fechar
           </button>
         </div>
