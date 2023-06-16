@@ -51,8 +51,8 @@ function DadosPessoaisForm() {
   function finalizarCadastro(event){
     event.preventDefault();
     submeterUsuario();
-  }
-
+  };
+ 
   return (
     <div className={styles.telaDeDadosCadastrais}>
       <div className={styles.caixaFormulario}>

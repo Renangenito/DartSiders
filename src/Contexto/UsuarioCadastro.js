@@ -30,6 +30,7 @@ export const CadastroUsuarioProvider = ({children}) => {
     const [usuario, setUsuario] = useState(usuarioInicial);
 
     const setNomeCompleto = (nomeCompleto) => {
+        console.log("TESTE TESTE TESTE")
         setUsuario(estadoAnterior => {
             return{
                 ...estadoAnterior,
@@ -45,6 +46,8 @@ export const CadastroUsuarioProvider = ({children}) => {
                 uf
             }
         })
+        // console.log(uf);
+        
     }
 
     const setCidade = (cidade) => {

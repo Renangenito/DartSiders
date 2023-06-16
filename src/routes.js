@@ -7,8 +7,10 @@ import Login from "./Pages/Login";
 import LayoutBase from "./Pages/LayoutBase";
 import { SnackbarProvider } from "notistack";
 import DadosPessoaisForm from "./Pages/Cadastro/DadosPessoaisForm";
+import { CadastroUsuarioProvider } from "./Contexto/UsuarioCadastro";
 function AppRoutes() {
   return (
+    <CadastroUsuarioProvider>
     <SnackbarProvider>
       <BrowserRouter>
         <ScrollToTop />
@@ -22,6 +24,7 @@ function AppRoutes() {
         </Routes>
       </BrowserRouter>
     </SnackbarProvider>
+    </CadastroUsuarioProvider>
   );
 }
 
